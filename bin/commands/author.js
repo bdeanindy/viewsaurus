@@ -7,10 +7,10 @@ function authorCommand(options) {
     // Create express app to serve the current directory
     var app = express();
     // Generate content fresh on every request, but skip CSS/JS
-    app.use(function(request, response, next) {
-        options.skipJavascript = true;
-        options.skipCss = true;
-        viewsaurus.generate(options, function(err) {
+    app.use(function (request, response, next) {
+        options.skipJavascript = options.skipJavascript === false ? false : true;
+        options.skipCss = options.skipCss === false ? false : true;
+        viewsaurus.generate(options, function (err) {
             if (err) return response.status(500).send(err);
             // If all is generated well, let content be served
             next();
@@ -22,7 +22,7 @@ function authorCommand(options) {
     // Generate with initial options, generate CSS and JS
     options.outputDirectory = options.outputDirectory || process.cwd();
     options.outputFileName = options.outputFileName || 'index.html';
-    viewsaurus.generate(options, function(err) {
+    viewsaurus.generate(options, function (err) {
         if (err) {
             console.error(err.stack);
             return console.error('problem starting authoring server :('.red);

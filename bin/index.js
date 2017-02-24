@@ -14,7 +14,7 @@ parser.option('project', {
 parser.option('version', {
     help: 'print version and exit',
     flag: true,
-    callback: function() {
+    callback: function () {
         return pkgInfo.version
     }
 });
@@ -25,9 +25,14 @@ parser.command('author')
     .option('port', {
         abbr: 'P',
         help: 'HTTP port for the dev server',
-        default: 8080
+        default: 8888,
+        skipCss: false
     })
     .callback(require('./commands/author'));
+
+parser.command('build')
+    .help('building tutorials')
+    .callback(require('./commands/build'));
 
 // Export a Viewsaurus tutorial
 // Start up a simple dev server to use during development
@@ -86,13 +91,13 @@ parser.command('new')
     })
     .option('repo', {
         abbr: 'r',
-        help: 'the GitHub username/repo for this project, ' 
-            + 'e.g. "twilio/twilio-ruby" or "substack/node-browserify"'
+        help: 'the GitHub username/repo for this project, '
+        + 'e.g. "twilio/twilio-ruby" or "substack/node-browserify"'
     })
     .option('herokuButton', {
         abbr: 'B',
         help: 'whether or not this project supports instant deployment with '
-            + 'the "Heroku Button"',
+        + 'the "Heroku Button"',
         default: false
     })
     .callback(require('./commands/new'));
