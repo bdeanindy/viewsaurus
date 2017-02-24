@@ -24,7 +24,7 @@
 @editor: #272822;
 @controlBar: #D0F0ED;
 @progressBar: #71BBBA;
-@startButton: #56C4C3;
+@startButton: #fe8034;
 @yellow: #D1C626;
 
 // Fonts
@@ -51,29 +51,33 @@
 
   .highlighted div:not(.active) span {
     color: @grey !important;
-    color: rgba(100,100,100,0.5) !important;
+    color: rgba(100, 100, 100, 0.5) !important;
     text-shadow: 0px 0px 3px @grey !important;
   }
 
-  position:relative;
-  height:100%;
-  width:100%;
-  overflow:hidden;
-  background-color:@white;
-  font-family:@sans-serif;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: @white;
+  font-family: @sans-serif;
 
   .saurus-panes {
-    position:relative;
-    height:100%;
-    width:100%;
+    position: relative;
+    height: 100%;
+    width: 100%;
   }
 
   .hidden {
-    display:none;
+    display: none;
   }
 
   // Sub view less files
   @import "prose_view.less";
   @import "code_view.less";
   @import "explorer_view.less";
+  @import "header.less";
+  @import "footer.less";
+  @import "fonts.less";
+  @import "icon_fonts.less";
 }
