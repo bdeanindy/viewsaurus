@@ -78,7 +78,6 @@
   "description": "Create tutorials for code projects. It's like \"view source\", but 84% more awesome.",
   "devDependencies": {
     "faucet": "*",
-    "jsdom": "^1.0.3",
     "tape": "^3.0.0"
   },
   "dist": {
