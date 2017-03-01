@@ -25,8 +25,13 @@ parser.command('author')
     .option('port', {
         abbr: 'P',
         help: 'HTTP port for the dev server',
-        default: 8888,
-        skipCss: false
+        default: 8888
+    })
+    .option('skipCss', {
+        flag: true,
+        abbr: 'C',
+        help: 'Generate CSS',
+        default: false
     })
     .callback(require('./commands/author'));
 
