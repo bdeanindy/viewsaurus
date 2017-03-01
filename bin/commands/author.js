@@ -8,6 +8,7 @@ function authorCommand(options) {
     var app = express();
     // Generate content fresh on every request, but skip CSS/JS
     app.use(function (request, response, next) {
+
         options.skipJavascript = options.skipJavascript === false ? false : true;
         options.skipCss = options.skipCss === false ? false : true;
         viewsaurus.generate(options, function (err) {

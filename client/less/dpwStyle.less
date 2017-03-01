@@ -1,0 +1,257 @@
+@controlHeight: 40px;
+@headerTitleHeight: 54px;
+@borderLength: 1px;
+@headerBottom: 12px;
+@headerTop: 24px;
+
+.left-section {
+  margin-left: 30px;
+}
+
+.wrapper {
+  overflow-y: auto;
+}
+
+#viewsaurus {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+
+  .saurus-panes-header {
+    height: @headerTitleHeight;
+    color: #0073ae;
+    font-weight: lighter;
+    line-height: @headerTitleHeight;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 36px;
+    padding: @headerTop 0 @headerBottom 30px;
+  }
+  .saurus-editor {
+    background-color: transparent;
+  }
+  .saurus-prose {
+    top: @headerTitleHeight+@borderLength+@headerTop+@headerBottom;
+    border-right: 1px solid @dpwBorderColor;
+    .saurus-start {
+      top: @controlHeight;
+
+      a, a:visited {
+        width: 155px;
+        border-radius: 3px;
+        text-transform: none;
+        font-weight: normal;
+      }
+
+      p {
+        color: #585858;
+        padding-left: 20px;
+      }
+    }
+
+    .saurus-prose-header {
+      background-color: #ffffff;
+      padding-left: 30px;
+      .step-title {
+        font-size: 36px;
+        color: @dpwBtnColor;
+        font-weight: lighter;
+        text-transform: none;
+
+      }
+      .title-outer {
+        padding: 0;
+      }
+    }
+
+    .saurus-progress-bar {
+      top: 40px;
+      background-color: @dpwBtnColor;
+    }
+
+    // Next/previous nav
+    .saurus-nav-buttons {
+      color: @darkgrey;
+      background-color: lighten(@dpwBgColor, 80%);
+      top: 0;
+
+      .saurus-nav-button {
+
+        .saurus-nav-button-inner {
+          color: @dpwBtnColor;
+        }
+
+        .nav-divider {
+          background: none;
+        }
+      }
+
+      .nav-previous, .nav-next {
+        a, a:visited {
+          color: #cdcdcd;
+        }
+      }
+
+      .clickable {
+        a, a:visited {
+          color: @dpwBtnColor;
+        }
+      }
+
+      .clickable a:hover {
+        opacity: 0.7;
+      }
+    }
+
+    // Prose styling
+    .saurus-content {
+      top: 40px;
+      padding: 20px 30px 0 30px;
+      color: #585858;
+
+      .step :not(pre) code {
+        background-color: #eaeaea;
+        color: #585858;
+      }
+    }
+
+    .saurus-overview {
+      top: 42px;
+      background-color: #f5f5f5;
+
+      ul li {
+        background: none;
+        margin-bottom: 0;
+        font-size: 14px;
+        a, a:visited {
+          color: #585858;
+        }
+        a:hover {
+          color: @dpwNavBtnFocusColor;
+          text-decoration: none;
+        }
+
+        span {
+          color: #585858;
+          padding-left: 15px;
+          font-size: 18px;
+        }
+      }
+
+      ul li.current {
+        background: none;
+        a {
+          color: @dpwNavBtnFocusColor;
+        }
+      }
+    }
+
+    a, a:visited {
+      color: @dpwBtnColor;
+    }
+  }
+
+  .saurus-code {
+    top: @headerTitleHeight+@borderLength+@headerTop+@headerBottom;
+    border-right: 1px solid @dpwBorderColor;
+
+    .file-path {
+      background-color: @white;
+
+      .crumb-container span:last-child {
+        color: @dpwNavBtnColor;
+      }
+    }
+
+    .saurus-editor {
+      border-top: 1px solid @dpwBorderColor;
+    }
+
+    .ace_gutter-layer {
+      background-color: @white;
+      border-right: 1px solid @dpwBorderColor;
+    }
+
+    .ace_content {
+      background-color: @white;
+      color: #585858;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: @white;
+    }
+
+    .ace_scroller {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+    }
+    .ace_scrollbar {
+      scrollbar-track-color: @white;
+      scrollbar-face-color: #e9e9e9;
+      scrollbar-shadow-color: #e9e9e9;
+    }
+
+    .ace-monokai {
+      background-color: @white;
+
+      .ace_gutter {
+        background-color: @white;
+      }
+      .ace_punctuation {
+        color: @codeOperator;
+      }
+
+      .ace_storage.ace_type {
+        color: @codeKeywords;
+      }
+
+      .ace_function, .ace_keyword, .ace_identifier {
+        color: @codeFunction;
+      }
+
+      .ace_string {
+        color: @codeString;
+      }
+    }
+
+  }
+
+  .ace_scrollbar-v {
+    background-color: @white;
+  }
+
+  .saurus-explorer {
+    top: @headerTitleHeight+@borderLength+@headerTop+@headerBottom;
+    background-color: @white;
+
+    .saurus-file-list ul {
+      li {
+        color: @dpwNavBtnColor;
+        font-weight: bold;
+        :hover {
+          color: @dpwNavBtnFocusColor;
+        }
+
+        ul li {
+          color: @dpwNavBtnColor;
+          font-weight: normal;
+        }
+      }
+
+      li[data-file]:hover:not(.current) {
+        color: @dpwNavBtnFocusColor;
+      }
+    }
+
+    .saurus-file-list .current {
+      color: @dpwNavBtnFocusColor;
+    }
+    .saurus-file-list .current:hover {
+      color: @dpwNavBtnFocusColor;
+    }
+  }
+
+}
+
+.ace-monokai .ace_indent-guide {
+  opacity: 0.2;
+}
+

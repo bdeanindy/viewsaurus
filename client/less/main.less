@@ -36,7 +36,10 @@
 @titleHeight: 22px;
 @explorerWidth: 270px;
 
-// Lightbox 
+// DPW Colors
+@import "dpwColors.less";
+
+// Lightbox
 @import "featherlight.less";
 
 #viewsaurus {
@@ -46,6 +49,9 @@
   @import "monokai.less";
   // Scrollbar mixins
   @import "scrollbars.less";
+
+
+
   // Default dark scrollbars
   .dark-scrollbars();
 
@@ -76,8 +82,11 @@
   @import "prose_view.less";
   @import "code_view.less";
   @import "explorer_view.less";
-  @import "header.less";
-  @import "footer.less";
-  @import "fonts.less";
-  @import "icon_fonts.less";
+
+
 }
+@import "fonts.less";
+@import "icon_fonts.less";
+@import "dpwStyle.less";
+@import "header.less";
+@import "footer.less";
