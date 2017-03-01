@@ -85,7 +85,7 @@
 
       .nav-previous, .nav-next {
         a, a:visited {
-          color: lighten(@dpwBtnColor, 20%);
+          color: #cdcdcd;
         }
       }
 
@@ -96,7 +96,7 @@
       }
 
       .clickable a:hover {
-        color: lighten(@dpwBtnColor, 30%);
+        opacity: 0.7;
       }
     }
 
@@ -181,6 +181,7 @@
     .ace_scroller {
       padding-left: 20px;
       padding-right: 20px;
+      padding-top: 10px;
     }
     .ace_scrollbar {
       scrollbar-track-color: @white;
@@ -223,7 +224,7 @@
 
     .saurus-file-list ul {
       li {
-        color: #303030;
+        color: @dpwNavBtnColor;
         font-weight: bold;
         :hover {
           color: @dpwNavBtnFocusColor;
