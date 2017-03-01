@@ -186,13 +186,13 @@ var ProseView = Backbone.View.extend({
                 left:0
             });
             self.$overviewNav.addClass('fa-close')
-                .removeClass('fa-list');
+                .removeClass('icon-menu');
         } else {
             self.$overviewContent.animate({
                 left:'-100%'
             });
             self.$overviewNav.removeClass('fa-close')
-                .addClass('fa-list');
+                .addClass('icon-menu');
         }
     },
 

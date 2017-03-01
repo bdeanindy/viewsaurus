@@ -1,8 +1,9 @@
 @controlHeight: 40px;
-@headerTitleHeight: 54px;
+@headerTitleHeight: 40px;
 @borderLength: 1px;
-@headerBottom: 12px;
-@headerTop: 24px;
+@headerBottom: 10px;
+@headerTop: 10px;
+@scrollbarColor: #dddddd;
 
 .left-section {
   margin-left: 30px;
@@ -18,10 +19,9 @@
   .saurus-panes-header {
     height: @headerTitleHeight;
     color: #0073ae;
-    font-weight: lighter;
     line-height: @headerTitleHeight;
     border-bottom: 1px solid #e8e8e8;
-    font-size: 36px;
+    font-size: 24px;
     padding: @headerTop 0 @headerBottom 30px;
   }
   .saurus-editor {
@@ -73,7 +73,7 @@
       top: 0;
 
       .saurus-nav-button {
-
+        width: 85px;
         .saurus-nav-button-inner {
           color: @dpwBtnColor;
         }
@@ -81,6 +81,18 @@
         .nav-divider {
           background: none;
         }
+      }
+
+      .nav-previous {
+
+      }
+
+      .nav-next {
+
+      }
+
+      .saurus-next-title {
+
       }
 
       .nav-previous, .nav-next {
@@ -107,8 +119,9 @@
       color: #585858;
 
       .step :not(pre) code {
-        background-color: #eaeaea;
+        background-color: transparent;
         color: #585858;
+        font-weight: bold;
       }
     }
 
@@ -146,6 +159,18 @@
     a, a:visited {
       color: @dpwBtnColor;
     }
+
+    ::-webkit-scrollbar-track {
+      background-color: @white;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: @scrollbarColor;
+    }
+    .ace_scrollbar {
+      scrollbar-track-color: @white;
+      scrollbar-face-color: @scrollbarColor;
+      scrollbar-shadow-color: @scrollbarColor;
+    }
   }
 
   .saurus-code {
@@ -164,9 +189,14 @@
       border-top: 1px solid @dpwBorderColor;
     }
 
+    .ace_editor {
+      font-family: 'Lato', Helvetica, Arial, sans-serif;
+    }
+
     .ace_gutter-layer {
       background-color: @white;
       border-right: 1px solid @dpwBorderColor;
+      padding-top: 10px;
     }
 
     .ace_content {
@@ -174,21 +204,26 @@
       color: #585858;
     }
 
-    ::-webkit-scrollbar-track {
-      background-color: @white;
-    }
-
     .ace_scroller {
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 10px;
     }
+
+    ::-webkit-scrollbar-track {
+      background-color: @white;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: @scrollbarColor;
+    }
     .ace_scrollbar {
       scrollbar-track-color: @white;
-      scrollbar-face-color: #e9e9e9;
-      scrollbar-shadow-color: #e9e9e9;
+      scrollbar-face-color: @scrollbarColor;
+      scrollbar-shadow-color: @scrollbarColor;
     }
-
+    .ace_line {
+      color: @codeFunction;
+    }
     .ace-monokai {
       background-color: @white;
 
@@ -207,7 +242,7 @@
         color: @codeFunction;
       }
 
-      .ace_string {
+      .ace_variable, .ace_string {
         color: @codeString;
       }
     }
