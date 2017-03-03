@@ -176,6 +176,7 @@
   .saurus-code {
     top: @headerTitleHeight+@borderLength+@headerTop+@headerBottom;
     border-right: 1px solid @dpwBorderColor;
+    background-color: transparent;
 
     .file-path {
       background-color: @white;
@@ -187,10 +188,7 @@
 
     .saurus-editor {
       border-top: 1px solid @dpwBorderColor;
-    }
-
-    .ace_editor {
-      font-family: 'Lato', Helvetica, Arial, sans-serif;
+      font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
     }
 
     .ace_gutter-layer {
@@ -208,6 +206,10 @@
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 10px;
+      overflow: hidden;
+    }
+    .ace_scroller.ace_scroll-left {
+      box-shadow: none;
     }
 
     ::-webkit-scrollbar-track {
@@ -242,8 +244,9 @@
         color: @codeFunction;
       }
 
-      .ace_variable, .ace_string {
+      .ace_variable, .ace_string, .ace_invalid.ace_illegal {
         color: @codeString;
+        background-color: transparent;
       }
     }
 
