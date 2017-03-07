@@ -30,11 +30,11 @@ var ProseView = Backbone.View.extend({
         'click .saurus-start a': 'hideStart',
         'click .saurus-content img': 'showLightbox',
         'click .nav-previous': 'previous',
-        'click .nav-next': 'next' 
+        'click .nav-next': 'next'
     },
 
     // Initialize UI
-    initialize: function(options) {
+    initialize: function (options) {
         var self = this;
 
         // Store a reference to main app model and create view model
@@ -62,35 +62,35 @@ var ProseView = Backbone.View.extend({
 
         // On any history event, we want to hide the start screen
         Backbone.history.on('all', self.hideStart, self);
-    
+
         // Subscribe to model updates
         self.app.on('change:stepIndex', self.stepChanged, self);
         self.model.on('change:overviewShown', self.overviewChanged, self);
     },
 
     // Analytics - fire event on main app for next/previous
-    next: function() {
+    next: function () {
         var self = this;
         self.app.trigger('next');
     },
 
-    previous: function() {
+    previous: function () {
         var self = this;
         self.app.trigger('previous');
     },
 
     // Show a lightbox when an image is clicked
-    showLightbox: function(e) {
+    showLightbox: function (e) {
         var $img = $(e.currentTarget);
         $.featherlight($img.attr('src'));
     },
 
     // Hide the initial start prompt
-    hideStart: function() {
+    hideStart: function () {
         var self = this;
         if (!self.startFired) {
             // Defer to allow page listeners to register
-            _.defer(function() {
+            _.defer(function () {
                 self.app.trigger('start');
             });
             self.startFired = false;
@@ -99,12 +99,12 @@ var ProseView = Backbone.View.extend({
     },
 
     // Show the next step title
-    showNextStep: function(index) {
+    showNextStep: function (index) {
         var self = this;
         var text = "You did it! Good for you :)";
         if (index < self.app.totalSteps) {
             var $next = self.$content.find('.step').eq(index);
-            var truncated = titleForStep($next).substring(0,35);
+            var truncated = titleForStep($next).substring(0, 35);
             if (truncated.length > 34) {
                 truncated += '...';
             }
@@ -114,7 +114,7 @@ var ProseView = Backbone.View.extend({
     },
 
     // toggle overview shown on view model on button click
-    toggleOverview: function() {
+    toggleOverview: function () {
         var self = this;
         if (!self.model.get('overviewShown')) {
             self.app.trigger('show_overview');
@@ -123,20 +123,20 @@ var ProseView = Backbone.View.extend({
     },
 
     // Handle an updated step
-    stepChanged: function() {
+    stepChanged: function () {
         var self = this;
         var stepIndex = self.app.get('stepIndex');
         var $step = self.$el.find('.step').eq(stepIndex);
 
         // Update next step text
-        self.showNextStep(stepIndex+1);
+        self.showNextStep(stepIndex + 1);
 
         // Hide overview if it is showing
         self.model.set('overviewShown', false);
 
         // Update progress bar
         self.$progressBar.animate({
-            width: (((stepIndex+1) / self.app.totalSteps) * 100) + '%'
+            width: (((stepIndex + 1) / self.app.totalSteps) * 100) + '%'
         });
 
         // Update to the proper prose section
@@ -155,7 +155,7 @@ var ProseView = Backbone.View.extend({
         // Update next nav link
         if (self.app.hasNext()) {
             self.$next.addClass('clickable')
-                .find('a').attr('href', '#' + (self.app.get('stepIndex')+1));
+                .find('a').attr('href', '#' + (self.app.get('stepIndex') + 1));
         } else {
             // If there's no next step, we've reached the end for the first time
             if (!self.lastStepReached) {
@@ -169,27 +169,31 @@ var ProseView = Backbone.View.extend({
         // Update previous nav link
         if (self.app.hasPrevious()) {
             self.$previous.addClass('clickable')
-                .find('a').attr('href', '#' + (self.app.get('stepIndex')-1));
+                .find('a').attr('href', '#' + (self.app.get('stepIndex') - 1));
         } else {
             self.$previous.removeClass('clickable')
                 .find('a').attr('href', '#0');
         }
+
+        if (window.GAClient) {
+            window.GAClient.trackPage(location.href);
+        }
     },
 
     // Handle overview show/hide
-    overviewChanged: function() {
+    overviewChanged: function () {
         var self = this;
         var shown = self.model.get('overviewShown');
 
         if (shown) {
             self.$overviewContent.animate({
-                left:0
+                left: 0
             });
             self.$overviewNav.addClass('fa-close')
                 .removeClass('icon-menu');
         } else {
             self.$overviewContent.animate({
-                left:'-100%'
+                left: '-100%'
             });
             self.$overviewNav.removeClass('fa-close')
                 .addClass('icon-menu');
@@ -197,14 +201,14 @@ var ProseView = Backbone.View.extend({
     },
 
     // populate overview from data in the DOM
-    populateOverview: function() {
+    populateOverview: function () {
         var self = this;
         var html = '';
         var firstChapter = true;
         var stepIndex = 0;
 
         // Iterate over chapters, extract data, build overview HTML
-        self.$content.find('.chapter, .step').each(function() {
+        self.$content.find('.chapter, .step').each(function () {
             var $thing = $(this);
             if ($thing.hasClass('chapter')) {
                 if (!firstChapter) {
