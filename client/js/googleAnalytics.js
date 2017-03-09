@@ -14,17 +14,22 @@ var GoogleAnalytics = function (id) {
     ga('create', id, 'auto');
     this.trackPage = function (url, percentage, step) {
         var title = window.tutorialName || document.title;
-        var eventData = {
-            'url': url,
-            'title': title,
-            'step': step,
-            'completedPercentage': percentage
-        };
-
+        ga('set', 'dimension1', title);
+        ga('set', 'dimension2', percentage);
+        ga('set', 'dimension3', url);
+        ga('set', 'dimension4', step);
+        // var eventData = {
+        //     'url': url,
+        //     'title': title,
+        //     'step': step,
+        //     'completedPercentage': percentage
+        // };
+        //
         ga('send', 'pageview', {
-            'title': title,
-            'page': url,
-            'dimension1': JSON.stringify(eventData)
+            'dimension1': title,
+            'dimension2': percentage,
+            'dimension3': url,
+            'dimension4': step
         });
     };
 };
