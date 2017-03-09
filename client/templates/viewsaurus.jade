@@ -1,7 +1,11 @@
 include header
 #viewsaurus(data-title=title || 'Viewsaurus Tutorial')
     .saurus-panes
-        .saurus-panes-header= title
+        .saurus-panes-header
+            a.saurus-back-to-tutorials(href="#{tutorialsUrl}")
+                | Tutorials
+            span='>'
+            span=title
         include prose_view
         include code_view
         include explorer_view

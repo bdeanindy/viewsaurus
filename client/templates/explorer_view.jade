@@ -1,5 +1,9 @@
 .saurus-explorer
   .saurus-file-list
-  a.explorer-get-code(href="https://github.com/#{repo}", target="_blank") 
-    i.fa.fa-lg.fa-github-square 
-    | View Code on GitHub
+  .saurus-file-actions
+    a.explorer-get-code(href="https://github.com/#{repo}", target="_blank")
+      i.fa.fa-lg.fa-github-square
+      | View Code on GitHub
+    a.explorer-get-code(href="https://github.com/#{repo}/archive/master.zip", target="_blank")
+      i.fa.fa-lg.icon-download
+      | Download Source Code
