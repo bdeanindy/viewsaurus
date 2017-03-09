@@ -23,7 +23,14 @@
     border-bottom: 1px solid #e8e8e8;
     font-size: 24px;
     padding: @headerTop 0 @headerBottom 30px;
+    > * {
+      margin-right: 5px;
+    }
+    .saurus-back-to-tutorials {
+      color: @dpwBtnColor;
+    }
   }
+
   .saurus-editor {
     background-color: transparent;
   }
@@ -92,7 +99,9 @@
       }
 
       .saurus-next-title {
-
+        .next-title-inner {
+          font-size: 14px;
+        }
       }
 
       .nav-previous, .nav-next {
@@ -109,6 +118,7 @@
 
       .clickable a:hover {
         opacity: 0.7;
+        color: @dpwBtnColor;
       }
     }
 
@@ -194,7 +204,6 @@
     .ace_gutter-layer {
       background-color: @white;
       border-right: 1px solid @dpwBorderColor;
-      padding-top: 10px;
     }
 
     .ace_content {
@@ -280,9 +289,15 @@
       color: @dpwNavBtnFocusColor;
     }
 
-    a.explorer-get-code {
-      color: @dpwNavBtnColor;
+    .saurus-file-actions {
+      margin: 30px 10px;
+      a.explorer-get-code {
+        color: @dpwNavBtnColor;
+        margin: 15px 0;
+        font-style: normal;
+      }
     }
+
   }
 
 }

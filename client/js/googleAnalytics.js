@@ -12,9 +12,19 @@ var GoogleAnalytics = function (id) {
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', id, 'auto');
-    this.trackPage = function (url) {
+    this.trackPage = function (url, percentage, step) {
+        var title = window.tutorialName || document.title;
+        var eventData = {
+            'url': url,
+            'title': title,
+            'step': step,
+            'completedPercentage': percentage
+        };
+
         ga('send', 'pageview', {
-            'page': url
+            'title': title,
+            'page': url,
+            'dimension1': JSON.stringify(eventData)
         });
     };
 };

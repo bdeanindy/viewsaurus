@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= title || 'Viewsaurus Tutorial'
+    title= title+'- RingCentral Developer Tutorials' || 'Viewsaurus Tutorial'
     style.
       body, html {
         height:100%;
@@ -36,8 +36,8 @@ html
     script(src='//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js')
     script(src='ace/ace.js')
     script(src='ace/theme-monokai.js')
-    script(type="text/javascript").
-      window.GATrackingID="#{googleAnalytics}";
+    script.
+      window.tutorialName="#{title}";
     if inline
       script!= javascript
     else
