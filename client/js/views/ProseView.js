@@ -177,7 +177,7 @@ var ProseView = Backbone.View.extend({
 
         if (window.GAClient) {
             var currentStep = stepIndex + 1;
-            window.GAClient.trackPage(location.href, ((currentStep / self.app.totalSteps).toFixed(3) * 100) + '%', currentStep);
+            window.GAClient.trackPage(location.href, ((currentStep / self.app.totalSteps).toFixed(3) * 100) + '%', currentStep, self.app.totalSteps);
         }
     },
 
